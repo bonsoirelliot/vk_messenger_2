@@ -16,18 +16,18 @@ class RequestHandler {
 
   Dio? _dio;
 
-  RequestHandler._init() {
+  RequestHandler._init({String? baseUrl}) {
     _dio = Dio(
       BaseOptions(
-        baseUrl: StaticData.baseUrl,
+        baseUrl: baseUrl ?? StaticData.baseUrl,
         connectTimeout: 20000,
         receiveTimeout: 40000,
       ),
     );
   }
 
-  factory RequestHandler() {
-    final handler = RequestHandler._init();
+  factory RequestHandler({String? baseUrl}) {
+    final handler = RequestHandler._init(baseUrl: baseUrl);
 
     try {
       if (_store == null && !_storeCreating) {

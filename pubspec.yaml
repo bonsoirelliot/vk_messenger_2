@@ -30,12 +30,14 @@ dependencies:
   cookie_jar: 3.0.1
   dio: ^4.0.4
   dio_cache_interceptor: ^3.0.3
-  dio_cache_interceptor_db_store: ^3.0.2
+  dio_cache_interceptor_db_store: ^4.1.0
   dio_cookie_manager: ^2.0.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  surf_mwwm: ^2.0.2
   path_provider: ^2.0.8
+  sqlite3_flutter_libs: ^0.5.3
 
 
   # The following adds the Cupertino Icons font to your application.

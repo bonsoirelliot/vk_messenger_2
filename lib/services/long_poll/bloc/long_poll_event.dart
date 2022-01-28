@@ -4,13 +4,9 @@ part of 'long_poll_bloc.dart';
 abstract class LongPollEvent {}
 
 class LongPollSend extends LongPollEvent {
-  final String server;
-  final String key;
-  final String ts;
+  final String path;
 
   LongPollSend({
-    required this.server,
-    required this.key,
-    required this.ts,
+    required this.path,
   });
 }

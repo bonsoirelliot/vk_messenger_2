@@ -1,6 +1,11 @@
 class StaticData {
   static String baseUrl = 'https://api.vk.com/method/';
 
+  static String authUrl = 'https://oauth.vk.com/token/';
+
+  static String clientId = '3140623';
+  static String clientSecret = 'VeWdmVclDCtn6ihuP1nt';
+
   static int longPollWait = 25;
 
   static String longPollUrl({
