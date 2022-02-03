@@ -15,10 +15,17 @@ class AppStyles {
     fontWeight: FontWeight.w500,
   );
 
-  static const TextStyle p1 = TextStyle(
+  static const TextStyle p2 = TextStyle(
     color: Colors.white,
     fontSize: 10,
     height: 10 / 12,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const TextStyle p1 = TextStyle(
+    color: Colors.white,
+    fontSize: 12,
+    height: 12 / 14,
     fontWeight: FontWeight.w400,
   );
 }

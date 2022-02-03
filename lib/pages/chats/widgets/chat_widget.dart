@@ -5,8 +5,10 @@ import 'package:vk_messenger_2/theme/styles.dart';
 class ChatWidget extends StatelessWidget {
   final ChatModel chatModel;
   final VoidCallback? onTap;
+  final double topPadding;
   const ChatWidget({
     required this.chatModel,
+    this.topPadding = 8.0,
     this.onTap,
     Key? key,
   }) : super(key: key);
@@ -19,7 +21,7 @@ class ChatWidget extends StatelessWidget {
         20,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.fromLTRB(8, topPadding, 8, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -58,7 +60,7 @@ class ChatWidget extends StatelessWidget {
               children: [
                 Text(
                   chatModel.time,
-                  style: AppStyles.p1.copyWith(color: Colors.blueGrey),
+                  style: AppStyles.p2.copyWith(color: Colors.blueGrey),
                 ),
                 const SizedBox(
                   height: 10,
@@ -67,7 +69,7 @@ class ChatWidget extends StatelessWidget {
                   radius: 8,
                   child: Text(
                     chatModel.unreadCount.toString(),
-                    style: AppStyles.p1,
+                    style: AppStyles.p2,
                   ),
                 ),
               ],

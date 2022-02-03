@@ -4,21 +4,21 @@ class AppTheme {
   static ThemeData get currentAppTheme => ThemeData(
         fontFamily: 'Euclid Circular A',
         textSelectionTheme: const TextSelectionThemeData(
-          cursorColor: Colors.red,
+          cursorColor: Colors.blueGrey,
           selectionColor: Colors.red,
           selectionHandleColor: Colors.red,
         ),
         inputDecorationTheme: InputDecorationTheme(
-          contentPadding: EdgeInsets.zero,
+          contentPadding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
           //isDense: true,
-          fillColor: Colors.white,
+          fillColor: Colors.blueGrey[100],
           filled: true,
           focusColor: Colors.red,
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(
-              20,
-            ),
-          ),
+              borderRadius: BorderRadius.circular(
+                90,
+              ),
+              borderSide: BorderSide.none),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(
               20,

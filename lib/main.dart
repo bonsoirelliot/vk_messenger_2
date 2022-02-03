@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vk_messenger_2/navigation/main_navigator.dart';
 import 'package:vk_messenger_2/pages/auth/screens/auth_screen.dart';
 import 'package:vk_messenger_2/pages/chats/screens/chats_screen.dart';
 import 'package:vk_messenger_2/theme/app_theme.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppTheme.currentAppTheme,
-      home: ChatsScreen(),
+      home: const MainNavigator(),
     );
   }
 }

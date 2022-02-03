@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class StaticData {
   static String baseUrl = 'https://api.vk.com/method/';
 
@@ -15,4 +17,8 @@ class StaticData {
   }) {
     return 'https://{$server}?act=a_check&key={$key}&ts={$ts}&wait=$longPollWait&mode=2&version=3';
   }
+}
+
+class Keys {
+  static GlobalKey<NavigatorState> mainNav = GlobalKey();
 }
