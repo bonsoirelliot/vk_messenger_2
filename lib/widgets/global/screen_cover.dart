@@ -11,12 +11,13 @@ class ScreenCover extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.blueAccent,
-      child: SafeArea(
-        left: false,
-        right: false,
-        bottom: false,
-        child: child,
-      ),
+      // child: SafeArea(
+      //   left: false,
+      //   right: false,
+      //   bottom: false,
+      //   child: child,
+      // ),
+      child: child,
     );
   }
 }

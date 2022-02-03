@@ -7,11 +7,11 @@ class BackgroundAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        constraints: const BoxConstraints.expand(),
-        color: Colors.blueAccent,
-        alignment: Alignment.topCenter,
+    return Container(
+      constraints: const BoxConstraints.expand(),
+      color: Colors.blueAccent,
+      alignment: Alignment.topCenter,
+      child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Row(

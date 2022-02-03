@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vk_messenger_2/models/chat/message_model.dart';
+import 'package:vk_messenger_2/static/static_data.dart';
 import 'package:vk_messenger_2/theme/styles.dart';
 
 class MessageBubble extends StatelessWidget {
@@ -17,7 +18,9 @@ class MessageBubble extends StatelessWidget {
       children: [
         Flexible(
           child: Container(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.all(
+              StaticData.standartPadding,
+            ),
             decoration: BoxDecoration(
               color: message.main ? Colors.blueAccent : Colors.blueGrey[100],
               borderRadius: BorderRadius.only(
@@ -47,7 +50,7 @@ class MessageBubble extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  message.message,
+                  message.text,
                   style: AppStyles.p1.copyWith(
                     color: message.main ? Colors.white : Colors.black87,
                   ),
@@ -56,7 +59,7 @@ class MessageBubble extends StatelessWidget {
                   width: 8,
                 ),
                 Text(
-                  message.time,
+                  message.date.toString(),
                   style: AppStyles.p2.copyWith(
                     color: message.main ? Colors.white60 : Colors.black45,
                   ),

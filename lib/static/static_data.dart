@@ -10,6 +10,8 @@ class StaticData {
 
   static int longPollWait = 25;
 
+  static double standartPadding = 12.0;
+
   static String longPollUrl({
     required String server,
     required String key,

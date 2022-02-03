@@ -36,11 +36,31 @@ class Models {
     ),
   ];
 
-  static List<MessageModel> messages = [
-    MessageModel(message: 'message', time: '10:20', main: false),
-    MessageModel(message: 'asdsads', time: '10:20'),
-    MessageModel(message: 'sdssdsdsd', time: '10:20', main: false),
-    MessageModel(message: 'message', time: '10:20', main: false),
-    MessageModel(message: 'message', time: '10:20'),
-  ];
+  // static List<MessageModel> messages = [
+  //   MessageModel(message: 'message', time: '10:20', main: false),
+  //   MessageModel(message: 'asdsads', time: '10:20'),
+  //   MessageModel(message: 'sdssdsdsd', time: '10:20', main: false),
+  //   MessageModel(message: 'message', time: '10:20', main: false),
+  //   MessageModel(message: 'message', time: '10:20'),
+  //   MessageModel(message: 'message', time: '10:20', main: false),
+  //   MessageModel(message: 'asdsads', time: '10:20'),
+  //   MessageModel(message: 'sdssdsdsd', time: '10:20', main: false),
+  //   MessageModel(message: 'message', time: '10:20', main: false),
+  //   MessageModel(message: 'message', time: '10:20'),
+  //   MessageModel(message: 'message', time: '10:20', main: false),
+  //   MessageModel(message: 'asdsads', time: '10:20'),
+  //   MessageModel(message: 'sdssdsdsd', time: '10:20', main: false),
+  //   MessageModel(message: 'message', time: '10:20', main: false),
+  //   MessageModel(message: 'message', time: '10:20'),
+  //   MessageModel(message: 'message', time: '10:20', main: false),
+  //   MessageModel(message: 'asdsads', time: '10:20'),
+  //   MessageModel(message: 'sdssdsdsd', time: '10:20', main: false),
+  //   MessageModel(message: 'message', time: '10:20', main: false),
+  //   MessageModel(message: 'message', time: '10:20'),
+  //   MessageModel(message: 'message', time: '10:20', main: false),
+  //   MessageModel(message: 'asdsads', time: '10:20'),
+  //   MessageModel(message: 'sdssdsdsd', time: '10:20', main: false),
+  //   MessageModel(message: 'message', time: '10:20', main: false),
+  //   MessageModel(message: 'message', time: '10:20'),
+  // ];
 }

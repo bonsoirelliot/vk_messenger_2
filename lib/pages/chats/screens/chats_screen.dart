@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:surf_mwwm/surf_mwwm.dart';
 import 'package:vk_messenger_2/pages/chats/screens/chats_screen_content.dart';
-import 'package:vk_messenger_2/pages/chats/widgets/chat_widget.dart';
-import 'package:vk_messenger_2/test/models.dart';
+import 'package:vk_messenger_2/pages/chats/wm/chats_screen_wm.dart';
 import 'package:vk_messenger_2/theme/styles.dart';
 import 'package:vk_messenger_2/widgets/app_bar/background_app_bar.dart';
-import 'package:vk_messenger_2/widgets/liner.dart';
 import 'package:vk_messenger_2/widgets/global/screen_cover.dart';
 
-class ChatsScreen extends StatefulWidget {
-  const ChatsScreen({Key? key}) : super(key: key);
+class ChatsScreen extends CoreMwwmWidget<ChatsScreenWM> {
+  ChatsScreen({Key? key})
+      : super(key: key, widgetModelBuilder: (context) => ChatsScreenWM());
 
   @override
-  State<ChatsScreen> createState() => _ChatsScreenState();
+  WidgetState<CoreMwwmWidget<ChatsScreenWM>, ChatsScreenWM>
+      createWidgetState() => _ChatsScreenState();
 }
 
-class _ChatsScreenState extends State<ChatsScreen> {
+class _ChatsScreenState extends WidgetState<ChatsScreen, ChatsScreenWM> {
   final controller = ScrollController();
   @override
   Widget build(BuildContext context) {
@@ -30,19 +32,12 @@ class _ChatsScreenState extends State<ChatsScreen> {
                   style: AppStyles.h2,
                 ),
               ),
-              SafeArea(
-                child: DraggableScrollableSheet(
-                  snap: true,
-                  builder: (context, controller) {
-                    return ChatsScreenContent(
-                      controller: controller,
-                    );
-                  },
-                  maxChildSize: 1,
-                  minChildSize: 0.9,
-                  initialChildSize: 0.9,
-                ),
-              )
+              Provider(
+                create: (context) {
+                  return wm;
+                },
+                child: const ChatsScreenContent(),
+              ),
             ],
           ),
         ),

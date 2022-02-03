@@ -4,6 +4,7 @@ import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio_cache_interceptor_db_store/dio_cache_interceptor_db_store.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vk_messenger_2/static/static_data.dart';
 import 'package:path_provider/path_provider.dart' as pp;
 
@@ -101,6 +102,12 @@ class RequestHandler {
     //debugPrint('userToken ${_userWM?.userData.value.data?.user.token}');
 
     try {
+      var prefs = await SharedPreferences.getInstance();
+      if (queryParameters != null) {
+        queryParameters.addAll(<String, dynamic>{
+          'access_token': prefs.getString('user_token'),
+        });
+      }
       res = await _dio!.get(
         path,
         // cancelToken: cancelToken,
@@ -121,7 +128,10 @@ class RequestHandler {
         //             'x-api-key': _userWM?.userData.value.data?.user.token,
         //         },
         //       ),
-        queryParameters: queryParameters,
+        queryParameters: queryParameters ??
+            <String, dynamic>{
+              'access_token': prefs.getString('user_token'),
+            },
       );
     } on DioError catch (e) {
       final result = e.response;

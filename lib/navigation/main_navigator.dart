@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vk_messenger_2/pages/auth/screens/auth_screen.dart';
 import 'package:vk_messenger_2/pages/chats/screens/chats_screen.dart';
 import 'package:vk_messenger_2/pages/dialog/screens/dialog_screen.dart';
+import 'package:vk_messenger_2/pages/loading/loading_screen.dart';
 import 'package:vk_messenger_2/static/static_data.dart';
 
 class MainNavigator extends StatelessWidget {
@@ -21,7 +23,17 @@ class MainNavigator extends StatelessWidget {
 
         switch (settings.name) {
           case '/':
-            page = const ChatsScreen();
+            page = const LoadingScreen();
+            //showAnimation = false;
+            break;
+
+          case '/login':
+            page = LoginScreen();
+            //showAnimation = false;
+            break;
+
+          case '/chats':
+            page = ChatsScreen();
             //showAnimation = false;
             break;
 
@@ -31,7 +43,7 @@ class MainNavigator extends StatelessWidget {
             break;
 
           default:
-            page = const ChatsScreen();
+            page = const LoadingScreen();
             //showAnimation = false;
             break;
         }
@@ -46,13 +58,14 @@ class MainNavigator extends StatelessWidget {
               return page;
             });
           }
-        } else {
-          return PageRouteBuilder<void>(
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return page;
-            },
-          );
         }
+        // else {
+        //   return PageRouteBuilder<void>(
+        //     pageBuilder: (context, animation, secondaryAnimation) {
+        //       return page;
+        //     },
+        //   );
+        // }
       },
     );
   }

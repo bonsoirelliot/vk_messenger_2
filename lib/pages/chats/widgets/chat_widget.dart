@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:vk_messenger_2/models/chat/chat_model.dart';
+import 'package:vk_messenger_2/models/chat/conversation_item.dart';
 import 'package:vk_messenger_2/theme/styles.dart';
 
 class ChatWidget extends StatelessWidget {
-  final ChatModel chatModel;
+  final ConversationItem conversationItem;
   final VoidCallback? onTap;
   final double topPadding;
   const ChatWidget({
-    required this.chatModel,
+    required this.conversationItem,
     this.topPadding = 8.0,
     this.onTap,
     Key? key,
@@ -28,9 +29,9 @@ class ChatWidget extends StatelessWidget {
             Flexible(
               child: Row(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     child: Text(
-                      chatModel.name.characters.first.toUpperCase(),
+                      'A',
                     ),
                   ),
                   const SizedBox(
@@ -41,13 +42,14 @@ class ChatWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          chatModel.name,
+                          conversationItem.conversationModel.peerModel.id
+                              .toString(),
                           style: AppStyles.h3.copyWith(
                             color: Colors.black87,
                           ),
                         ),
                         Text(
-                          chatModel.lastMessage,
+                          conversationItem.lastMessage.text,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],
@@ -59,16 +61,16 @@ class ChatWidget extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  chatModel.time,
+                  '${DateTime.fromMillisecondsSinceEpoch(conversationItem.lastMessage.date * 1000).hour}:${DateTime.fromMillisecondsSinceEpoch(conversationItem.lastMessage.date * 1000).minute}',
                   style: AppStyles.p2.copyWith(color: Colors.blueGrey),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 8,
                   child: Text(
-                    chatModel.unreadCount.toString(),
+                    '2',
                     style: AppStyles.p2,
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vk_messenger_2/static/static_data.dart';
 
 class AppTheme {
   static ThemeData get currentAppTheme => ThemeData(
@@ -9,7 +10,8 @@ class AppTheme {
           selectionHandleColor: Colors.red,
         ),
         inputDecorationTheme: InputDecorationTheme(
-          contentPadding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
+          contentPadding: EdgeInsets.fromLTRB(
+              StaticData.standartPadding, 0, StaticData.standartPadding, 0),
           //isDense: true,
           fillColor: Colors.blueGrey[100],
           filled: true,

@@ -36,23 +36,11 @@ class DialogScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SafeArea(
-                child: DraggableScrollableSheet(
-                  //snap: true,
-                  builder: (context, controller) {
-                    return DialogScreenContent(
-                      controller: controller,
-                    );
-                  },
-                  maxChildSize: 1,
-                  minChildSize: 0.9,
-                  initialChildSize: 0.9,
-                ),
-              )
+              const DialogScreenContent(),
             ],
           ),
         ),
-        floatingActionButton: FloatingTextField(),
+        floatingActionButton: const FloatingTextField(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );

@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:surf_mwwm/surf_mwwm.dart';
-import 'package:vk_messenger_2/pages/auth/wm/auth_wm.dart';
+import 'package:vk_messenger_2/pages/auth/wm/login_wm.dart';
 import 'package:vk_messenger_2/widgets/other/animated_gradient.dart';
 import 'package:vk_messenger_2/theme/styles.dart';
 import 'package:vk_messenger_2/widgets/input/text_input.dart';
 
-class AuthScreen extends CoreMwwmWidget<AuthWM> {
-  AuthScreen({Key? key})
+class LoginScreen extends CoreMwwmWidget<LoginWM> {
+  LoginScreen({Key? key})
       : super(
           key: key,
-          widgetModelBuilder: (context) => AuthWM(),
+          widgetModelBuilder: (context) => LoginWM(),
         );
 
   @override
-  WidgetState<CoreMwwmWidget<AuthWM>, AuthWM> createWidgetState() =>
+  WidgetState<CoreMwwmWidget<LoginWM>, LoginWM> createWidgetState() =>
       _AuthScreenState();
 }
 
-class _AuthScreenState extends WidgetState<AuthScreen, AuthWM> {
+class _AuthScreenState extends WidgetState<LoginScreen, LoginWM> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
