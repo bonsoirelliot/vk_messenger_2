@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:vk_messenger_2/models/chat/chat_model.dart';
+import 'package:vk_messenger_2/models/chat/chat_settings/base_settings_model.dart';
 import 'package:vk_messenger_2/models/chat/conversation_item.dart';
+import 'package:vk_messenger_2/models/chat/chat_settings/profile_model.dart';
 import 'package:vk_messenger_2/theme/styles.dart';
 
 class ChatWidget extends StatelessWidget {
   final ConversationItem conversationItem;
+  final BaseSettingsModel profileModel;
   final VoidCallback? onTap;
   final double topPadding;
   const ChatWidget({
     required this.conversationItem,
+    required this.profileModel,
     this.topPadding = 8.0,
     this.onTap,
     Key? key,
@@ -41,13 +45,16 @@ class ChatWidget extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          conversationItem.conversationModel.peerModel.id
-                              .toString(),
-                          style: AppStyles.h3.copyWith(
-                            color: Colors.black87,
-                          ),
-                        ),
+                        if (conversationItem.conversationModel.peerModel.type ==
+                            'user')
+                          Text(
+                            '${(profileModel as ProfileModel).name} ${(profileModel as ProfileModel).lastName}',
+                            style: AppStyles.h3.copyWith(
+                              color: Colors.black87,
+                            ),
+                          )
+                        else
+                          Text('${profileModel.name}'),
                         Text(
                           conversationItem.lastMessage.text,
                           overflow: TextOverflow.ellipsis,

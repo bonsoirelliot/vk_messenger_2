@@ -10,7 +10,7 @@ class ChatsDownloader {
     final resp = (await rh.get(
       'messages.getConversations',
       queryParameters: <String, dynamic>{
-        'count': 20,
+        //'count': 20,
         'filter': 'all',
         'extended': 1,
         //'fields': '[first_name,last_name]',

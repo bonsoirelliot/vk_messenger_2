@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:surf_mwwm/surf_mwwm.dart';
+import 'package:vk_messenger_2/models/chat/chat_settings/base_settings_model.dart';
+import 'package:vk_messenger_2/models/chat/chat_settings/chat_settings.dart';
 import 'package:vk_messenger_2/models/chat/conversation_item.dart';
+import 'package:vk_messenger_2/models/chat/conversations_response.dart';
+import 'package:vk_messenger_2/models/chat/chat_settings/profile_model.dart';
 import 'package:vk_messenger_2/pages/chats/screens/chats_screen.dart';
 import 'package:vk_messenger_2/pages/chats/widgets/chat_widget.dart';
 import 'package:vk_messenger_2/pages/chats/wm/chats_screen_wm.dart';
@@ -43,8 +47,8 @@ class _ChatsScreenContentState extends State<ChatsScreenContent> {
       child: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
-          EntityStateBuilder<List<ConversationItem>>(
-              streamedState: wm.chats,
+          EntityStateBuilder<ConversationsResponse>(
+              streamedState: wm.response,
               loadingChild: SliverList(
                 delegate: SliverChildListDelegate(
                   [
@@ -56,19 +60,34 @@ class _ChatsScreenContentState extends State<ChatsScreenContent> {
                 return SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, i) {
+                      final profile = state
+                                  .items[i].conversationModel.peerModel.type ==
+                              'user'
+                          ? state.profiles.firstWhere(
+                              (model) =>
+                                  model.id ==
+                                  state.items[i].conversationModel.peerModel.id,
+                            )
+                          : BaseSettingsModel(
+                              name: state.items[i].conversationModel
+                                      .chatSettingsModel?.name ??
+                                  '',
+                              img: 'img',
+                            );
                       return Column(
                         children: [
                           ChatWidget(
-                            conversationItem: state[i],
+                            conversationItem: state.items[i],
+                            profileModel: profile,
                             onTap: () {
                               Navigator.of(context).pushNamed('/dialog');
                             },
                           ),
-                          if (i != state.length - 1) const Liner(),
+                          if (i != state.items.length - 1) const Liner(),
                         ],
                       );
                     },
-                    childCount: state.length,
+                    childCount: state.items.length,
                   ),
                 );
               }),

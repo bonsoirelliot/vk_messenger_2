@@ -10,7 +10,7 @@ import 'package:vk_messenger_2/pages/chats/downloader/chats_downloader.dart';
 import 'package:vk_messenger_2/services/request_handler/request_handler.dart';
 
 class ChatsScreenWM extends WidgetModel {
-  final chats = EntityStreamedState<List<ConversationItem>>();
+  final response = EntityStreamedState<ConversationsResponse>();
 
   ChatsScreenWM() : super(const WidgetModelDependencies());
 
@@ -21,17 +21,15 @@ class ChatsScreenWM extends WidgetModel {
   }
 
   Future<void> _loadChats() async {
-    final rh = RequestHandler();
-
     CustomException? error;
 
     late ConversationsResponse result;
 
     try {
-      chats.loading([]);
+      response.loading();
       result = await ChatsDownloader.download();
 
-      chats.content(result.items);
+      response.content(result);
     } on ResponseParseException catch (e) {
       error = CustomException(
         title: e.toString(),
